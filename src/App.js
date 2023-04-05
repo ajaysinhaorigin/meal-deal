@@ -46,7 +46,6 @@ const AppRouter = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
-    errorElement: <Error />,
     children: [
       {
         path: '/',
@@ -130,6 +129,10 @@ const AppRouter = createBrowserRouter([
             <SingleRestaurent />
           </Suspense>
         ),
+      },
+      {
+        path: '*',
+        element: <Error />,
       },
     ],
   },

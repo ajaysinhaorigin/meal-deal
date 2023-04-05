@@ -23,6 +23,7 @@ const useFetchRestaurents = () => {
     try {
       const data = await fetch(API_URL)
       const json = await data.json()
+
       if (json?.statusCode === 0) {
         dispatch(getSortList(json?.data?.sorts))
         dispatch(getCarosels(json?.data?.cards[0]?.data?.data?.cards))
