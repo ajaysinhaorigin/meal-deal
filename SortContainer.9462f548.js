@@ -143,8 +143,8 @@
     }
   }
 })({"1xC6H":[function(require,module,exports) {
-var Refresh = require("a3dcf382cc31c7ab");
-var ErrorOverlay = require("b9411ca0a3b9e93c");
+var Refresh = require("eeb23ed864017f9a");
+var ErrorOverlay = require("665554ca58992008");
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {};
 window.$RefreshSig$ = function() {
@@ -163,7 +163,7 @@ window.addEventListener("parcelhmraccept", ()=>{
     ErrorOverlay.dismissRuntimeErrors();
 });
 
-},{"a3dcf382cc31c7ab":"786KC","b9411ca0a3b9e93c":"1dldy"}],"bLXU8":[function(require,module,exports) {
+},{"eeb23ed864017f9a":"786KC","665554ca58992008":"1dldy"}],"bLXU8":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -647,7 +647,8 @@ const useSortedRestaurents = (sortby)=>{
         try {
             const res = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&${sortby}&page_type=DESKTOP_WEB_LISTING`);
             const json = await res.json();
-            dispatch((0, _restaurentSlice.getFilteredRestaurents)(json?.data?.cards[2]?.data?.data?.cards));
+            console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            dispatch((0, _restaurentSlice.getFilteredRestaurents)(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants));
         } catch (error) {
             console.log(error);
         }
@@ -658,6 +659,7 @@ _s(useSortedRestaurents, "rAh3tY+Iv6hWC9AI4Dm+rCbkwNE=", false, function() {
         (0, _reactRedux.useDispatch)
     ];
 });
+// json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle  ?.restaurants
 exports.default = useSortedRestaurents;
 
   $parcel$ReactRefreshHelpers$c6ce.postlude(module);
