@@ -645,7 +645,7 @@ const useSortedRestaurents = (sortby)=>{
     ]);
     const fetchSortedRestaurents = async ()=>{
         try {
-            const res = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&${sortby}&page_type=DESKTOP_WEB_LISTING`);
+            const res = await fetch(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&${sortby}&page_type=DESKTOP_WEB_LISTING`);
             const json = await res.json();
             console.log(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
             dispatch((0, _restaurentSlice.getFilteredRestaurents)(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants));

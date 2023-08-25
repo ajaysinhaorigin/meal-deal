@@ -693,7 +693,7 @@ const useFetchSingleRestaurent = (id)=>{
     }, []);
     async function fetchSingleRestaurent() {
         try {
-            const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.9873139&lng=77.04451030000001&restaurantId=${id}&submitAction=ENTER`);
+            const data = await fetch(`https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.9873139&lng=77.04451030000001&restaurantId=${id}&submitAction=ENTER`);
             const json1 = await data.json();
             if (json1?.statusCode === 0) {
                 dispatch((0, _menuSlice.getSingleRestaurent)(json1.data.cards[0].card.card.info));
