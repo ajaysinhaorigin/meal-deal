@@ -1,9 +1,12 @@
 {
+  "homepage": "https://ajaysinhaorigin.github.io/meal-deal",
   "name": "meal-deal",
   "version": "1.0.0",
   "description": "",
   "source": "./index.html",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "start": "parcel ",
     "build": "parcel build ",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,6 +17,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
     "firebase": "^9.19.1",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
