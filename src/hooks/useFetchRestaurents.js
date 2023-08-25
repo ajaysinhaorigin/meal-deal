@@ -25,17 +25,28 @@ const useFetchRestaurents = () => {
       const json = await data.json()
 
       if (json?.statusCode === 0) {
-        dispatch(getSortList(json?.data?.sorts))
-        dispatch(getCarosels(json?.data?.cards[0]?.data?.data?.cards))
-        dispatch(getAllRestaurents(json?.data?.cards[2]?.data?.data?.cards))
+        dispatch(getSortList(json?.data?.cards[4]?.card?.card?.sortConfigs))
         dispatch(
-          getFilteredRestaurents(json?.data?.cards[2]?.data?.data?.cards)
+          getCarosels(json?.data?.cards[0]?.card?.card?.imageGridCards?.info)
+        )
+        dispatch(
+          getAllRestaurents(
+            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants
+          )
+        )
+        // console.log(json?.data)
+        dispatch(
+          getFilteredRestaurents(
+            json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants
+          )
         )
       } else {
-        dispatch(setError(json?.statusMessage))
+        dispatch(setError(json?.data?.statusMessage))
       }
     } catch (error) {
-      dispatch(setError(error))
+      // console.log(error)
     }
   }
 

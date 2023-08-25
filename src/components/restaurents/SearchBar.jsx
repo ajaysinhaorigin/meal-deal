@@ -4,7 +4,7 @@ import { getFilteredRestaurents } from '../../features/restaurentSlice'
 
 const filterData = (textInput, allRestaurants) => {
     const filteredData = allRestaurants.filter((restaurant) =>
-        restaurant?.data?.name?.toLowerCase().includes(textInput.toLowerCase())
+        restaurant?.info?.name?.toLowerCase().includes(textInput.toLowerCase())
     )
 
     return filteredData

@@ -19,6 +19,7 @@ const useFetchOffersRestaurants = () => {
     try {
       const res = await fetch(RESTAURANT_OFFER_API)
       const json = await res.json()
+      console.log(json)
       if (json?.statusCode === 0) {
         dispatch(getRestaurantOffers(json?.data?.cards))
       } else {

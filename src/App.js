@@ -35,7 +35,7 @@ const AppLayout = () => {
     <>
       <Header />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
       <ToastContainer />
     </>
   )
