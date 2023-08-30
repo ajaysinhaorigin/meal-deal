@@ -15,7 +15,6 @@ import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Cart from './pages/Cart'
 import Error from './pages/Error'
-import SingleRestaurent from './pages/SingleRestaurent'
 import Footer from './components/footer/Footer'
 
 import { ToastContainer } from 'react-toastify'
@@ -23,7 +22,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 // On Demand Loading | Lazy Loading | Data Chunking...
 const Collection = lazy(() => import('./pages/Collection'))
-// const SingleRestaurent = lazy(() => import('./pages/SingleRestaurent'))
+const SingleRestaurent = lazy(() => import('./pages/SingleRestaurent'))
 const SortContainer = lazy(() => import('./components/sort/SortContainer'))
 const PaymentOffers = lazy(() => import('./components/offers/PaymentOffers'))
 const RestaurantOffers = lazy(() =>
@@ -47,6 +46,7 @@ const AppRouter = createBrowserRouter([
   {
     path: '/',
     element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: '/',
@@ -115,6 +115,14 @@ const AppRouter = createBrowserRouter([
         path: '/cart',
         element: <Cart />,
       },
+      {
+        path: '/restaurent/:id',
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <SingleRestaurent />
+          </Suspense>
+        ),
+      },
       // {
       //   path: '/collection/:link',
       //   element: (
@@ -123,18 +131,6 @@ const AppRouter = createBrowserRouter([
       //     </Suspense>
       //   ),
       // },
-      {
-        path: '/restaurent/:id',
-        element: (
-          // <Suspense fallback={<Shimmer />}>
-          <SingleRestaurent />
-          /* </Suspense> */
-        ),
-      },
-      {
-        path: '*',
-        element: <Error />,
-      },
     ],
   },
 ])

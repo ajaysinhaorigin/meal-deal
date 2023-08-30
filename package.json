@@ -1,5 +1,4 @@
 {
-  "homepage": "https://ajaysinhaorigin.github.io/meal-deal",
   "name": "meal-deal",
   "version": "1.0.0",
   "description": "",
@@ -25,7 +24,8 @@
     "react-router-dom": "^6.9.0",
     "react-slick": "^0.29.0",
     "react-toastify": "^9.1.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "parcel": "^2.8.3",
