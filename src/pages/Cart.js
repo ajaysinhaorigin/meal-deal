@@ -13,11 +13,14 @@ const Cart = () => {
   useEffect(() => {
     dispatch(
       setTotalPrice(
-        cart?.cart?.reduce(
-          (acc, currentValue) =>
-            acc + Number(currentValue.price / 100) * currentValue.qty,
-          0
-        )
+        cart?.cart
+          ?.reduce(
+            (acc, currentValue) =>
+              acc + Number(currentValue.price / 100) * currentValue.qty,
+            0
+          )
+          .toFixed(2)
+          .replace(/[/.,]0$/, '')
       )
     )
     dispatch(
