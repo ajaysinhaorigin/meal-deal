@@ -7,6 +7,7 @@ import {
   getMenu,
   setError,
 } from '../features/menuSlice'
+import { MENU_API } from '../common/config'
 
 const useFetchSingleRestaurent = (id) => {
   const dispatch = useDispatch()
@@ -18,9 +19,7 @@ const useFetchSingleRestaurent = (id) => {
 
   async function fetchSingleRestaurent() {
     try {
-      const data = await fetch(
-        `https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.9873139&lng=77.04451030000001&restaurantId=${id}&submitAction=ENTER`
-      )
+      const data = await fetch(MENU_API + id)
       const json = await data.json()
       if (json?.statusCode === 0) {
         dispatch(getSingleRestaurent(json.data.cards[0].card.card.info))

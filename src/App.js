@@ -123,14 +123,14 @@ const AppRouter = createBrowserRouter([
           </Suspense>
         ),
       },
-      // {
-      //   path: '/collection/:link',
-      //   element: (
-      //     <Suspense fallback={<Shimmer />}>
-      //       <Collection />
-      //     </Suspense>
-      //   ),
-      // },
+      {
+        path: '/collection/:link',
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Collection />
+          </Suspense>
+        ),
+      },
     ],
   },
 ])

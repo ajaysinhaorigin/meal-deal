@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { API_URL } from '../common/config'
+import { RESTAURENT_API_URL } from '../common/config'
+
 import { useSelector, useDispatch } from 'react-redux'
 import {
   setLoading,
@@ -21,7 +22,7 @@ const useFetchRestaurents = () => {
 
   async function fetchData() {
     try {
-      const data = await fetch(API_URL)
+      const data = await fetch(RESTAURENT_API_URL)
       const json = await data.json()
 
       if (json?.statusCode === 0) {
