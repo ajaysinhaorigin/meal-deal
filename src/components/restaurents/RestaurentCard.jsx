@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { FaStar } from 'react-icons/fa'
 import ImageComponent from '../../common/ImageComponent'
 const imageCdn = 'https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/'
-function RestaurentCard({ id, name, cloudinaryImageId, cuisines, avgRating, costForTwoString, slaString, aggregatedDiscountInfo,
+function RestaurentCard({ id, name, cloudinaryImageId, cuisines, avgRating, costForTwo, sla, aggregatedDiscountInfoV3,
 }) {
 
     return (
@@ -12,7 +12,6 @@ function RestaurentCard({ id, name, cloudinaryImageId, cuisines, avgRating, cost
             >
                 <div className="h-full hover:border-[1px] hover:shadow-lg border-gray-300 p-4">
                     <div className='w-full' >
-                        {/* <img src={imageCdn + cloudinaryImageId} alt="image" className="w-full h-full" /> */}
                         <ImageComponent cdn={cloudinaryImageId} />
                     </div>
                     <div className='py-2' >
@@ -29,14 +28,14 @@ function RestaurentCard({ id, name, cloudinaryImageId, cuisines, avgRating, cost
                                 <FaStar className='w-3 my-1 mr-1' />
                                 <p className='my-auto'>{avgRating}</p>
                             </li>
-                            <li>{slaString}</li>
-                            <li>{costForTwoString}</li>
+                            <li>{sla.slaString}</li>
+                            <li>{costForTwo}</li>
                         </ul>
-                        {
-                            aggregatedDiscountInfo?.shortDescriptionList
-                            [0]?.meta && <p className='py-2 text-sm border-t-[1px] border-gray-300 text-red-800' > {aggregatedDiscountInfo?.shortDescriptionList
-                            [0]?.meta}</p>
-                        }
+                        {/* { */}
+                        {/* // aggregatedDiscountInfoV3?.shortDescriptionList
+                            // [0]?.meta && */}
+                        <p className='py-2 text-sm border-t-[1px] border-gray-300 text-red-800' > {aggregatedDiscountInfoV3?.header}</p>
+                        {/* } */}
                     </div>
                 </div >
             </Link>

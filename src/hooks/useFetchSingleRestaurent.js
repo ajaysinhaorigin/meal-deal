@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {
   getSingleRestaurent,
   setLoading,
@@ -7,7 +7,7 @@ import {
   getMenu,
   setError,
 } from '../features/menuSlice'
-import { MENU_API } from '../common/config'
+import { CORS_URL, MENU_API } from '../common/config'
 
 const useFetchSingleRestaurent = (id) => {
   const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const useFetchSingleRestaurent = (id) => {
 
   async function fetchSingleRestaurent() {
     try {
-      const data = await fetch(MENU_API + id)
+      const data = await fetch(CORS_URL + MENU_API + id)
       const json = await data.json()
       if (json?.statusCode === 0) {
         dispatch(getSingleRestaurent(json.data.cards[0].card.card.info))

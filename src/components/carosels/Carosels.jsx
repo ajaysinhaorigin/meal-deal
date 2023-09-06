@@ -5,13 +5,14 @@ import Slider from "react-slick";
 import { useSelector } from 'react-redux'
 import Spinner from '../shimmerUI/Spinner'
 import CaroselCard from './CaroselCard'
+import { isMobile } from "../../common/helperFunctions";
 
 const Carosels = () => {
     const { carosels, loading } = useSelector((store) => store.restaurant)
     const sliderSettings = {
         infinite: true,
         speed: 400,
-        slidesToShow: carosels?.length > 4 ? 4 : 3,
+        slidesToShow: isMobile() ? carosels?.length > 3 ? 3 : 2 : carosels?.length > 4 ? 4 : 3,
         slidesToScroll: 1,
         dots: true,
         autoplay: false,
