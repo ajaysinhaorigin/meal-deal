@@ -591,8 +591,6 @@ var _reactRouterDom = require("react-router-dom");
 var _reactRedux = require("react-redux");
 var _useFetchSingleRestaurent = require("../hooks/useFetchSingleRestaurent");
 var _useFetchSingleRestaurentDefault = parcelHelpers.interopDefault(_useFetchSingleRestaurent);
-var _useFetchRestaurents = require("../hooks/useFetchRestaurents");
-var _useFetchRestaurentsDefault = parcelHelpers.interopDefault(_useFetchRestaurents);
 var _shimmer = require("../components/shimmerUI/Shimmer");
 var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _singleRestaurentComponent = require("../components/singleRestaurentDetails/SingleRestaurentComponent");
@@ -606,11 +604,10 @@ const SingleRestaurent = ()=>{
     _s();
     const { id  } = (0, _reactRouterDom.useParams)();
     (0, _useFetchSingleRestaurentDefault.default)(id);
-    (0, _useFetchRestaurentsDefault.default)();
     const { loading , error  } = (0, _reactRedux.useSelector)((store)=>store?.menu);
     if (loading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/pages/SingleRestaurent.js",
-        lineNumber: 16,
+        lineNumber: 15,
         columnNumber: 23
     }, undefined);
     if (error.show) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -623,17 +620,17 @@ const SingleRestaurent = ()=>{
                     children: error.msg
                 }, void 0, false, {
                     fileName: "src/pages/SingleRestaurent.js",
-                    lineNumber: 23,
+                    lineNumber: 22,
                     columnNumber: 13
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/SingleRestaurent.js",
-                lineNumber: 22,
+                lineNumber: 21,
                 columnNumber: 11
             }, undefined)
         }, void 0, false, {
             fileName: "src/pages/SingleRestaurent.js",
-            lineNumber: 21,
+            lineNumber: 20,
             columnNumber: 9
         }, undefined)
     }, void 0, false);
@@ -641,27 +638,26 @@ const SingleRestaurent = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _singleRestaurentComponentDefault.default), {}, void 0, false, {
                 fileName: "src/pages/SingleRestaurent.js",
-                lineNumber: 31,
+                lineNumber: 30,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _offersDefault.default), {}, void 0, false, {
                 fileName: "src/pages/SingleRestaurent.js",
-                lineNumber: 32,
+                lineNumber: 31,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menuDefault.default), {}, void 0, false, {
                 fileName: "src/pages/SingleRestaurent.js",
-                lineNumber: 33,
+                lineNumber: 32,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(SingleRestaurent, "bg77Rh6zuAAT5tJmpEOgvOfZ89A=", false, function() {
+_s(SingleRestaurent, "F54/uIYcJq+6cFaWJWaRdIskqfY=", false, function() {
     return [
         (0, _reactRouterDom.useParams),
         (0, _useFetchSingleRestaurentDefault.default),
-        (0, _useFetchRestaurentsDefault.default),
         (0, _reactRedux.useSelector)
     ];
 });
@@ -675,7 +671,7 @@ $RefreshReg$(_c, "SingleRestaurent");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react-redux":"bdVon","../hooks/useFetchSingleRestaurent":"5FnBi","../hooks/useFetchRestaurents":"8IeUJ","../components/shimmerUI/Shimmer":"gEK4Z","../components/singleRestaurentDetails/SingleRestaurentComponent":"eAApP","../components/singleRestaurentDetails/Offers":"bYU2F","../components/menu/Menu":"lSl5G","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5FnBi":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react-router-dom":"9xmpe","react-redux":"bdVon","../hooks/useFetchSingleRestaurent":"5FnBi","../components/shimmerUI/Shimmer":"gEK4Z","../components/singleRestaurentDetails/SingleRestaurentComponent":"eAApP","../components/singleRestaurentDetails/Offers":"bYU2F","../components/menu/Menu":"lSl5G","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"5FnBi":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d993 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -687,6 +683,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
 var _reactRedux = require("react-redux");
 var _menuSlice = require("../features/menuSlice");
+var _config = require("../common/config");
 var _s = $RefreshSig$();
 const useFetchSingleRestaurent = (id)=>{
     _s();
@@ -697,7 +694,7 @@ const useFetchSingleRestaurent = (id)=>{
     }, []);
     async function fetchSingleRestaurent() {
         try {
-            const data = await fetch(`https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.9873139&lng=77.04451030000001&restaurantId=${id}&submitAction=ENTER`);
+            const data = await fetch((0, _config.MENU_API) + id);
             const json1 = await data.json();
             if (json1?.statusCode === 0) {
                 dispatch((0, _menuSlice.getSingleRestaurent)(json1.data.cards[0].card.card.info));
@@ -721,7 +718,7 @@ exports.default = useFetchSingleRestaurent;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","react-redux":"bdVon","../features/menuSlice":"2QxFM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eAApP":[function(require,module,exports) {
+},{"react":"21dqq","react-redux":"bdVon","../features/menuSlice":"2QxFM","../common/config":"gmwYL","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"eAApP":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$84d7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

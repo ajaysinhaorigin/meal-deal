@@ -593,16 +593,13 @@ var _shimmer = require("../shimmerUI/Shimmer");
 var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _paymentOfferCard = require("./PaymentOfferCard");
 var _paymentOfferCardDefault = parcelHelpers.interopDefault(_paymentOfferCard);
-var _useFetchRestaurents = require("../../hooks/useFetchRestaurents");
-var _useFetchRestaurentsDefault = parcelHelpers.interopDefault(_useFetchRestaurents);
 var _s = $RefreshSig$();
 const PaymentOffers = ()=>{
     _s();
     const { paymentOffers , loading , error  } = (0, _useFetchPaymentOffersDefault.default)();
-    (0, _useFetchRestaurentsDefault.default)();
     if (loading) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/offers/PaymentOffers.jsx",
-        lineNumber: 9,
+        lineNumber: 8,
         columnNumber: 25
     }, undefined);
     if (error.show) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -615,17 +612,17 @@ const PaymentOffers = ()=>{
                     children: error.msg
                 }, void 0, false, {
                     fileName: "src/components/offers/PaymentOffers.jsx",
-                    lineNumber: 16,
+                    lineNumber: 15,
                     columnNumber: 25
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/offers/PaymentOffers.jsx",
-                lineNumber: 15,
+                lineNumber: 14,
                 columnNumber: 21
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/offers/PaymentOffers.jsx",
-            lineNumber: 14,
+            lineNumber: 13,
             columnNumber: 17
         }, undefined)
     }, void 0, false);
@@ -640,18 +637,18 @@ const PaymentOffers = ()=>{
                             children: paymentOffers[1]?.data?.data?.message
                         }, void 0, false, {
                             fileName: "src/components/offers/PaymentOffers.jsx",
-                            lineNumber: 30,
+                            lineNumber: 29,
                             columnNumber: 33
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/offers/PaymentOffers.jsx",
-                        lineNumber: 29,
+                        lineNumber: 28,
                         columnNumber: 29
                     }, undefined)
                 }, void 0, false)
             }, void 0, false, {
                 fileName: "src/components/offers/PaymentOffers.jsx",
-                lineNumber: 25,
+                lineNumber: 24,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -661,25 +658,24 @@ const PaymentOffers = ()=>{
                         type: offer?.cardType
                     }, i, false, {
                         fileName: "src/components/offers/PaymentOffers.jsx",
-                        lineNumber: 38,
+                        lineNumber: 37,
                         columnNumber: 54
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/components/offers/PaymentOffers.jsx",
-                lineNumber: 36,
+                lineNumber: 35,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/offers/PaymentOffers.jsx",
-        lineNumber: 24,
+        lineNumber: 23,
         columnNumber: 9
     }, undefined);
 };
-_s(PaymentOffers, "642Vc1cHi6O7oPzalY9zSWKgmhI=", false, function() {
+_s(PaymentOffers, "F/yqPUJl3r0fNiRsrOVkAYtIrjA=", false, function() {
     return [
-        (0, _useFetchPaymentOffersDefault.default),
-        (0, _useFetchRestaurentsDefault.default)
+        (0, _useFetchPaymentOffersDefault.default)
     ];
 });
 _c = PaymentOffers;
@@ -692,7 +688,7 @@ $RefreshReg$(_c, "PaymentOffers");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","../../hooks/useFetchPaymentOffers":"4izu0","../shimmerUI/Shimmer":"gEK4Z","./PaymentOfferCard":"8jsOC","../../hooks/useFetchRestaurents":"8IeUJ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4izu0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","../../hooks/useFetchPaymentOffers":"4izu0","../shimmerUI/Shimmer":"gEK4Z","./PaymentOfferCard":"8jsOC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4izu0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0bd1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
