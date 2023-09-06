@@ -7,8 +7,8 @@ import {
   getMenu,
   setError,
 } from '../features/menuSlice'
-import { CORS_URL, MENU_API } from '../common/config'
-
+import { CORS_URL, DESTKTOP_MENU_API, MOBILE_MENU_API } from '../common/config'
+import { isMobile } from '../common/helperFunctions'
 const useFetchSingleRestaurent = (id) => {
   const dispatch = useDispatch()
 
@@ -19,23 +19,29 @@ const useFetchSingleRestaurent = (id) => {
 
   async function fetchSingleRestaurent() {
     try {
-      const data = await fetch(CORS_URL + MENU_API + id)
+      const data = await fetch(
+        isMobile()
+          ? CORS_URL + MOBILE_MENU_API + id
+          : CORS_URL + DESTKTOP_MENU_API + id
+      )
       const json = await data.json()
-      if (json?.statusCode === 0) {
-        dispatch(getSingleRestaurent(json.data.cards[0].card.card.info))
-        dispatch(
-          getOfferDetails(
-            json.data.cards[1].card.card.gridElements.infoWithStyle.offers
-          )
-        )
-        dispatch(
-          getMenu(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards)
-        )
+
+      console.log(json.data)
+      let menu
+      if (isMobile()) {
+        menu = json?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards
       } else {
-        dispatch(setError(json?.statusMessage))
+        menu = json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards
       }
+      dispatch(getSingleRestaurent(json.data.cards[0].card.card.info))
+      dispatch(
+        getOfferDetails(
+          json.data.cards[1].card.card.gridElements.infoWithStyle.offers
+        )
+      )
+      dispatch(getMenu(menu))
     } catch (error) {
-      dispatch(setError(json?.statusMessage))
+      dispatch(setError(error))
     }
   }
 }

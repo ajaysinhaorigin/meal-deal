@@ -8,26 +8,24 @@ import Header from './components/header/Header'
 import Home from './pages/Home'
 import Restaurents from './components/restaurents/Restaurents'
 import PrivateRoute from './components/privateRoute/PrivateRoute'
-import Offers from './pages/Offers'
 import About from './pages/About'
 import Profile from './pages/Profile'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Cart from './pages/Cart'
 import Error from './pages/Error'
+import PaymentOffers from './components/offers/PaymentOffers'
+import RestaurantOffers from './components/offers/RestaurantOffers'
 import Footer from './components/footer/Footer'
 
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 // On Demand Loading | Lazy Loading | Data Chunking...
+const Offers = lazy(() => import('./pages/Offers'))
 const Collection = lazy(() => import('./pages/Collection'))
 const SingleRestaurent = lazy(() => import('./pages/SingleRestaurent'))
 const SortContainer = lazy(() => import('./components/sort/SortContainer'))
-const PaymentOffers = lazy(() => import('./components/offers/PaymentOffers'))
-const RestaurantOffers = lazy(() =>
-  import('./components/offers/RestaurantOffers')
-)
 
 // App
 const AppLayout = () => {
@@ -56,35 +54,31 @@ const AppRouter = createBrowserRouter([
             path: '/',
             element: <Restaurents />,
           },
-          {
-            path: ':sort',
-            element: (
-              <Suspense fallback={<Shimmer />}>
-                <SortContainer />
-              </Suspense>
-            ),
-          },
+          // {
+          //   path: ':sort',
+          //   element: (
+          //     <Suspense fallback={<Shimmer />}>
+          //       <SortContainer />
+          //     </Suspense>
+          //   ),
+          // },
         ],
       },
       {
         path: '/offers',
-        element: <Offers />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Offers />
+          </Suspense>
+        ),
         children: [
           {
             path: '/offers/restaurant',
-            element: (
-              <Suspense fallback={<Shimmer />}>
-                <RestaurantOffers />
-              </Suspense>
-            ),
+            element: <RestaurantOffers />,
           },
           {
             path: '/offers/payment',
-            element: (
-              <Suspense fallback={<Shimmer />}>
-                <PaymentOffers />
-              </Suspense>
-            ),
+            element: <PaymentOffers />,
           },
         ],
       },
@@ -123,14 +117,14 @@ const AppRouter = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        path: '/collection/:link',
-        element: (
-          <Suspense fallback={<Shimmer />}>
-            <Collection />
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: '/collection/:link',
+      //   element: (
+      //     <Suspense fallback={<Shimmer />}>
+      //       <Collection />
+      //     </Suspense>
+      //   ),
+      // },
     ],
   },
 ])
