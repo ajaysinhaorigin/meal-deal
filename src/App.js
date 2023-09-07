@@ -6,7 +6,6 @@ import { createBrowserRouter, Outlet } from 'react-router-dom'
 import Shimmer from './components/shimmerUI/Shimmer'
 import Header from './components/header/Header'
 import Home from './pages/Home'
-import Restaurents from './components/restaurents/Restaurents'
 import PrivateRoute from './components/privateRoute/PrivateRoute'
 import About from './pages/About'
 import Profile from './pages/Profile'
@@ -49,20 +48,7 @@ const AppRouter = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        children: [
-          {
-            path: '/',
-            element: <Restaurents />,
-          },
-          // {
-          //   path: ':sort',
-          //   element: (
-          //     <Suspense fallback={<Shimmer />}>
-          //       <SortContainer />
-          //     </Suspense>
-          //   ),
-          // },
-        ],
+        children: [],
       },
       {
         path: '/offers',

@@ -8,7 +8,7 @@ import CaroselCard from './CaroselCard'
 import { isMobile } from "../../common/helperFunctions";
 
 const Carosels = () => {
-    const { carosels, loading } = useSelector((store) => store.restaurant)
+    const { carosels, loading } = useSelector((store) => store.restaurent)
     const sliderSettings = {
         infinite: true,
         speed: 400,

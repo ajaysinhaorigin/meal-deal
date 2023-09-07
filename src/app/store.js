@@ -7,7 +7,7 @@ import paymentOfferSlice from '../features/paymentOfferSlice'
 
 const store = configureStore({
   reducer: {
-    restaurant: restaurentSlice,
+    restaurent: restaurentSlice,
     menu: menuSlice,
     cart: cartSlice,
     restaurantOffer: restaurantOfferSlice,

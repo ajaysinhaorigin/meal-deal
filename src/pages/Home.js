@@ -1,8 +1,9 @@
 import useFetchRestaurents from '../hooks/useFetchRestaurents'
 import Carosels from '../components/carosels/Carosels'
 import SearchBar from '../components/restaurents/SearchBar'
-import SortBar from '../components/sort/SortBar'
-import { Outlet } from 'react-router-dom'
+import Restaurents from '../components/restaurents/Restaurents'
+// import SortBar from '../components/sort/SortBar'
+// import { Outlet } from 'react-router-dom'
 import useOnline from '../hooks/useOnline'
 function Home() {
   const { allRestaurents, error } = useFetchRestaurents()
@@ -36,9 +37,10 @@ function Home() {
   return (
     <>
       <Carosels />
-      <SortBar />
+      {/* <SortBar /> */}
       <SearchBar />
-      <Outlet />
+      <Restaurents />
+      {/* <Outlet /> */}
     </>
   )
 }

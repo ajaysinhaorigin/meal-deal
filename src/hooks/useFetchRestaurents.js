@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import {
   CORS_URL,
   RESTAURENT_DESKTOP_API_URL,
@@ -16,7 +16,7 @@ import {
 import { isMobile } from '../common/helperFunctions'
 
 const useFetchRestaurents = () => {
-  const { allRestaurents, error } = useSelector((store) => store?.restaurant)
+  const { allRestaurents, error } = useSelector((store) => store?.restaurent)
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -38,29 +38,39 @@ const useFetchRestaurents = () => {
       if (isMobile()) {
         console.log('from mobile')
         console.log(json.data)
+
+        function getRetaurents(json) {
+          for (let i = 0; i < json.data.cards.length; i++) {
+            let checkRestaurents =
+              json?.data.success?.cards[i]?.gridWidget?.gridElements
+                ?.infoWithStyle?.restaurants
+            if (checkRestaurents) {
+              return checkRestaurents
+            }
+          }
+        }
+
         caroselList =
           json?.data?.success?.cards[0]?.gridWidget?.gridElements?.infoWithStyle
             ?.info
-        resList =
-          json?.data.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
-            ?.restaurants
+        resList = getRetaurents(json)
       } else {
         console.log('from desktop')
-        console.log(json.data)
+        console.log(json.data.cards)
 
-        const resList1 =
-          json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
-            ?.restaurants
-        const resList2 =
-          json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
-        const resList3 =
-          json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
-            ?.restaurants
+        function getRetaurents(json) {
+          for (let i = 0; i < json.data.cards.length; i++) {
+            let checkRestaurents =
+              json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+                ?.restaurants
+            if (checkRestaurents) {
+              return checkRestaurents
+            }
+          }
+        }
 
         caroselList = json?.data?.cards[0]?.card?.card?.imageGridCards?.info
-
-        resList = resList1 || resList2 || resList3
+        resList = getRetaurents(json)
       }
       dispatch(getCarosels(caroselList))
       dispatch(getAllRestaurents(resList))

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import Shimmer from '../shimmerUI/Shimmer'
 
 const Restaurents = () => {
-    const { filteredRestaurents, loading } = useSelector((store) => store.restaurant)
+    const { filteredRestaurents, loading } = useSelector((store) => store.restaurent)
 
     if (loading) return <Shimmer />
 
