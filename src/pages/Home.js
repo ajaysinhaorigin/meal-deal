@@ -3,12 +3,25 @@ import Carosels from '../components/carosels/Carosels'
 import SearchBar from '../components/restaurents/SearchBar'
 import SortBar from '../components/sort/SortBar'
 import { Outlet } from 'react-router-dom'
-
+import useOnline from '../hooks/useOnline'
 function Home() {
   const { allRestaurents, error } = useFetchRestaurents()
+  const isOnline = useOnline()
 
   if (!allRestaurents) null
 
+  if (!isOnline) {
+    return (
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+        <h1 className="text-2xl lg:text-4xl font-bold text-gray-700">
+          Oops,You are Offline
+        </h1>
+        <p className="text-lg lg:text-xl font-medium text-gray-600 my-1">
+          Please check your internet
+        </p>
+      </div>
+    )
+  }
   if (error.show)
     return (
       <>

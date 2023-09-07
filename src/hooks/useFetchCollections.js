@@ -29,7 +29,7 @@ const useFetchCollections = ({ link }) => {
     }
   }
 
-  return <div>useFetchCollections</div>
+  return null
 }
 
 export default useFetchCollections
