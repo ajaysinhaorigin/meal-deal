@@ -3,7 +3,7 @@ import CartCard from './CartCard'
 const CartContainer = ({ cart }) => {
     return (
         <>
-            <div className=' bg-gray-100 lg:w-1/2 lg:mr-28 mb-4 lg:mb-0 shadow-lg' >
+            <div className='bg-white lg:mr-36 mb-4 lg:mb-0' >
                 {
                     cart?.map((item) => <CartCard key={item.id} {...item} />)
                 }

@@ -19,31 +19,23 @@ function Profile() {
   }
 
   return (
-    <div className="flex justify-center pb-8">
-      <div className="">
-        <header className="my-10">
-          <p className="text-center text-xl font-bold ">My Profile</p>
-        </header>
-
-        <main className="border-2 rounded-lg shadow-lg lg:w-[500px] px-8 py-6 my-10">
-          <p className="text-center my-2 text-xl font-bold text-gray-600 ">
+    <div className="bg-gray-100 flex justify-center py-8">
+      <div className="bg-white p-4 m-2 my-12">
+        <main className="p-4">
+          <p className="text-center mb-10 text-2xl font-bold text-gray-900">
             Personal Details
           </p>
 
-          <div className="pr-28">
-            <p className="text-lg font-bold text-gray-600">
-              Name: <span className="text-gray-700">{name}</span>
-            </p>
-            <p className="text-lg font-bold text-gray-600">
-              Email: <span className="text-gray-700">{email}</span>
-            </p>
+          <div className="">
+            <p className="text-lg font-medium text-gray-900">Name: {name}</p>
+            <p className="text-lg font-medium text-gray-900">Email: {email}</p>
           </div>
         </main>
         <div className="text-center">
           <button
             type="button"
             onClick={onLogout}
-            className="px-6 py-2 text-lg font-bold  text-gray-600 rounded-xl shadow-lg hover:shadow-xl mt-10"
+            className="px-8 py-1 text-lg font-medium text-gray-100  bg-gray-900 rounded-lg hover:bg-gray-800 my-16"
           >
             Logout
           </button>

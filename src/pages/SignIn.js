@@ -42,7 +42,7 @@ function SignIn() {
 
   return (
     <>
-      <div className="bg-gray-100 px-16 py-14">
+      <div className="bg-gray-100 px-16 py-20 w-full h-full">
         <header>
           <p className="text-2xl font-bold px-2 my-4">Welcome Back !</p>
         </header>

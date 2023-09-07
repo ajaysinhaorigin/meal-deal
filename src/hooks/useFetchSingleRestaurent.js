@@ -26,7 +26,7 @@ const useFetchSingleRestaurent = (id) => {
       )
       const json = await data.json()
 
-      console.log(json.data)
+      // console.log(json.data)
       let menu
       if (isMobile()) {
         menu = json?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards

@@ -13,10 +13,10 @@ function Home() {
   if (!isOnline) {
     return (
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-        <h1 className="text-2xl lg:text-4xl font-bold text-gray-700">
+        <h1 className="text-xl font-bold lg:text-4xl text-gray-700">
           Oops,You are Offline
         </h1>
-        <p className="text-lg lg:text-xl font-medium text-gray-600 my-1">
+        <p className="font-medium my-2 text-gray-600">
           Please check your internet
         </p>
       </div>

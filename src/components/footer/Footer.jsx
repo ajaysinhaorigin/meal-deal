@@ -1,7 +1,7 @@
 function Footer() {
   return (
-    <div className="text-center text-gray-600 font-bold text-lg py-6 border-t-[1px] border-gray-200 bg-white" >
-      Build with ❤️ by Ajay Sinha
+    <div className="relative bottom-0 w-full text-center text-gray-100 font-medium text-lg py-2 bg-gray-900" >
+      Made with ❤️ by Ajay Sinha
     </div>
   )
 }

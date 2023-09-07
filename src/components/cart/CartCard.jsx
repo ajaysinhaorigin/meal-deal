@@ -4,17 +4,19 @@ import QuantityButton from '../../common/QuantityButton'
 const CartCard = ({ name, price, imageId, id, qty }) => {
 
     return (
-        <div className="shadow-lg bg-white lg:mx-auto py-4 px-2 flex justify-between border-[1px] border-dotted">
+        <div className="mx-auto py-4 px-3 flex justify-between">
             <div className="flex" >
-                <div className="mr-2 rounded-lg border-[1px] border-gray-100 w-28 h-20" >
+                <div className="mr-3 border-[1px] bg-gray-50 border-gray-200 w-28 h-24" >
                     <ImageComponent cdn={imageId} />
                 </div>
-                <p className="text-sm font-bold w-32 my-auto ml-1" >{name}</p>
+                <p className="text-sm lg:text-base font-medium my-auto max-w-[8rem]" >{name}</p>
             </div>
-            <div className="py-6" >
+
+            <div className="lg:flex my-auto" >
                 <QuantityButton id={id} />
+                <p className="my-auto mx-2 text-gray-700 text-sm font-medium mt-2"  >Price: ₹ {price / 100 * qty}</p>
             </div>
-            <p className="my-auto mx-3 text-gray-600 font-medium"  >Price: ₹ {price / 100 * qty}</p>
+
         </div>
     )
 }

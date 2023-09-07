@@ -59,7 +59,7 @@ function SignUp() {
 
   return (
     <>
-      <div className="bg-gray-100 px-16 py-14">
+      <div className="bg-gray-100 px-16 py-20">
         <header>
           <p className="text-2xl font-bold px-2 my-4">Create Your Account</p>
         </header>
