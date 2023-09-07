@@ -43,7 +43,7 @@ const Cart = () => {
   return (
     <>
       <div className="bg-gray-100 w-full h-full">
-        <div className="flex flex-col lg:flex-row justify-center lg:items-start mx-2 p-2 py-12">
+        <div className="flex flex-col lg:flex-row justify-center lg:items-start px-2 py-12 shadow-lg">
           <CartContainer cart={cart?.cart} />
           <BuilingDetails cart={cart} />
         </div>

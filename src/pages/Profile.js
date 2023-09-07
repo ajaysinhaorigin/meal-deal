@@ -20,7 +20,7 @@ function Profile() {
 
   return (
     <div className="bg-gray-100 flex justify-center py-8">
-      <div className="bg-white p-4 m-2 my-12">
+      <div className="bg-white p-4 m-3 my-12 shadow-lg">
         <main className="p-4">
           <p className="text-center mb-10 text-2xl font-bold text-gray-900">
             Personal Details
