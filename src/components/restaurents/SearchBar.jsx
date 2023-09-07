@@ -31,11 +31,11 @@ const SearchBar = () => {
     if (allRestaurents.length === 0) null
 
     return (
-        <div className="text-center my-12 grid grid-cols-4 lg:grid-cols-5">
-            <div className='col-span-3 lg:col-span-4' >
+        <div className="my-12 flex justify-center ">
+            <div className='w-2/3 lg:w-1/3 mr-2 lg:mr-6' >
                 <input
                     type="text"
-                    className="w-3/4 lg:w-1/2 font-medium lg:text-lg px-4 py-2 text-gray-700 
+                    className="w-full font-medium lg:text-lg px-4 py-2 text-gray-700 
                     focus:outline-orange-500 rounded-lg border-[2px] border-gray-700 "
                     placeholder="Find Your Favorite Restaurents.."
                     value={searchText}
@@ -48,8 +48,8 @@ const SearchBar = () => {
                     Search
                 </button> */}
             </div>
-            <div className='lg:text-lg font-medium text-gray-700 p-2' >
-                <input className="form-check-input mx-2" type="checkbox" checked={topRating} onChange={() => SetTopRating(!topRating)}
+            <div className=' flex items-baseline text-sm lg:text-lg font-medium text-gray-700 my-auto' >
+                <input className=" mx-2" type="checkbox" checked={topRating} onChange={() => SetTopRating(!topRating)}
                 /><label>Top Rated</label>
             </div>
         </div>

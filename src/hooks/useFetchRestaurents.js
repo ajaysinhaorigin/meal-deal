@@ -39,27 +39,29 @@ const useFetchRestaurents = () => {
         console.log('from mobile')
         console.log(json.data)
 
-        function getRetaurents(json) {
-          for (let i = 0; i < json.data.cards.length; i++) {
-            let checkRestaurents =
-              json?.data.success?.cards[i]?.gridWidget?.gridElements
-                ?.infoWithStyle?.restaurants
-            if (checkRestaurents) {
-              return checkRestaurents
-            }
-          }
-        }
+        // function getRetaurents(json) {
+        //   for (let i = 0; i < json?.data?.cards.length; i++) {
+        //     let checkRestaurents =
+        //       json?.data?.success?.cards[i]?.gridWidget?.gridElements
+        // //        ?.infoWithStyle?.restaurants
+        //     if (checkRestaurents) {
+        //       return checkRestaurents
+        //     }
+        //   }
+        // }
 
         caroselList =
           json?.data?.success?.cards[0]?.gridWidget?.gridElements?.infoWithStyle
             ?.info
-        resList = getRetaurents(json)
+        resList =
+          json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle
+            ?.restaurants
       } else {
         console.log('from desktop')
         console.log(json.data.cards)
 
         function getRetaurents(json) {
-          for (let i = 0; i < json.data.cards.length; i++) {
+          for (let i = 0; i < json?.data?.cards.length; i++) {
             let checkRestaurents =
               json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
                 ?.restaurants
