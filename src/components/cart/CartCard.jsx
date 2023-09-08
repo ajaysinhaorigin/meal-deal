@@ -2,7 +2,7 @@
 import ImageComponent from "../../common/ImageComponent"
 import QuantityButton from '../../common/QuantityButton'
 const CartCard = ({ name, price, imageId, id, qty }) => {
-
+    let newPrice = (price / 100 * qty).toFixed(2)
     return (
         <div className="mx-auto py-4 px-3 flex justify-between">
             <div className="flex" >
@@ -14,7 +14,7 @@ const CartCard = ({ name, price, imageId, id, qty }) => {
 
             <div className="lg:flex my-auto" >
                 <QuantityButton id={id} />
-                <p className="my-auto mx-2 text-gray-700 text-sm font-medium mt-2"  >Price: ₹ {price / 100 * qty}</p>
+                <p className="my-auto mx-2 text-gray-700 text-sm font-medium mt-2"  >Price: ₹ {newPrice}</p>
             </div>
 
         </div>

@@ -19,7 +19,7 @@ const useSortedRestaurents = (sortby) => {
       // console.log(json)
       // console.log(
       //   json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-      //     ?.restaurants
+      //  //   ?.restaurants
       // )
       dispatch(
         getFilteredRestaurents(

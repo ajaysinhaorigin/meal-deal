@@ -29,8 +29,6 @@ const SearchBar = () => {
         dispatch(getFilteredRestaurents(data))
     }, [searchText, topRating])
 
-    if (allRestaurents.length === 0) null
-
     return (
         <>
             <div className="my-4 flex justify-center lg:w-1/2">
@@ -39,7 +37,7 @@ const SearchBar = () => {
                         type="text"
                         className="w-full font-medium lg:text-lg px-3 py-2 text-gray-700 
                     focus:outline-orange-500 rounded-lg border-[1px] border-gray-700 "
-                        placeholder="Find Your Favorite Restaurents.."
+                        placeholder="Find Your Favorite Restaurants.."
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                     />

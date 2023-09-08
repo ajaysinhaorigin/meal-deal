@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import {
   CORS_URL,
   RESTAURENT_DESKTOP_API_URL,
@@ -10,7 +10,6 @@ import {
   getCarosels,
   getAllRestaurents,
   getFilteredRestaurents,
-  getSortList,
   setError,
 } from '../features/restaurentSlice'
 import { isMobile } from '../common/helperFunctions'
@@ -80,7 +79,7 @@ const useFetchRestaurents = () => {
       dispatch(getFilteredRestaurents(resList))
       // dispatch(getSortList(sortList))
     } catch (error) {
-      console.log(error)
+      console.log('Something went wrong')
     }
   }
 

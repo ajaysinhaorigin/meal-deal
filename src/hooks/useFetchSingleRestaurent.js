@@ -41,7 +41,7 @@ const useFetchSingleRestaurent = (id) => {
       )
       dispatch(getMenu(menu))
     } catch (error) {
-      dispatch(setError(error))
+      dispatch('Something went wrong')
     }
   }
 }
