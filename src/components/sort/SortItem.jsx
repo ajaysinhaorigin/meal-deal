@@ -1,11 +1,8 @@
-import { NavLink } from "react-router-dom"
-const SortItem = ({ item }) => {
-    const { key, title } = item
+const SortItem = ({ query, sortby }) => {
     return (
         <>
-            <NavLink to={`/sortBy=${key}`}>
-                <li className="mx-2 lg:mx-3 text-gray-600 text-xs lg:text-base hover:text-gray-500 font-medium pb-2">{title}</li>
-            </NavLink >
+
+            <button className="text-gray-700 text-xs mr-2 md:text-base lg:mx-2 lg:text-lg hover:text-orange-500 font-medium " onClick={() => sortby(query)} >{query}</button>
 
         </>
     )

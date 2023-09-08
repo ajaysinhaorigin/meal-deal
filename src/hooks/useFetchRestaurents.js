@@ -32,8 +32,8 @@ const useFetchRestaurents = () => {
           : CORS_URL + RESTAURENT_DESKTOP_API_URL
       )
       const json = await data.json()
-
-      let caroselList, resList
+      // console.log(json.data)
+      let caroselList, resList, sortList
 
       if (isMobile()) {
         console.log('from mobile')
@@ -58,7 +58,7 @@ const useFetchRestaurents = () => {
             ?.restaurants
       } else {
         console.log('from desktop')
-        console.log(json.data.cards)
+        // console.log(json.data.cards)
 
         function getRetaurents(json) {
           for (let i = 0; i < json?.data?.cards.length; i++) {
@@ -72,11 +72,13 @@ const useFetchRestaurents = () => {
         }
 
         caroselList = json?.data?.cards[0]?.card?.card?.imageGridCards?.info
+        sortList = json?.data?.cards[4]?.card?.card?.sortConfigs
         resList = getRetaurents(json)
       }
       dispatch(getCarosels(caroselList))
       dispatch(getAllRestaurents(resList))
       dispatch(getFilteredRestaurents(resList))
+      // dispatch(getSortList(sortList))
     } catch (error) {
       console.log(error)
     }

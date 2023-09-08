@@ -2,7 +2,8 @@ import useFetchRestaurents from '../hooks/useFetchRestaurents'
 import Carosels from '../components/carosels/Carosels'
 import SearchBar from '../components/restaurents/SearchBar'
 import Restaurents from '../components/restaurents/Restaurents'
-// import SortBar from '../components/sort/SortBar'
+import SortBar from '../components/sort/SortBar'
+import SortContainer from '../components/sort/SortContainer'
 // import { Outlet } from 'react-router-dom'
 import useOnline from '../hooks/useOnline'
 function Home() {
@@ -37,8 +38,10 @@ function Home() {
   return (
     <>
       <Carosels />
-      {/* <SortBar /> */}
-      <SearchBar />
+      <div className="flex flex-col lg:flex-row lg:px-4 py-2 justify-between w-full">
+        <SearchBar />
+        <SortBar />
+      </div>
       <Restaurents />
       {/* <Outlet /> */}
     </>

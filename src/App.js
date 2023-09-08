@@ -22,9 +22,9 @@ import 'react-toastify/dist/ReactToastify.css'
 
 // On Demand Loading | Lazy Loading | Data Chunking...
 const Offers = lazy(() => import('./pages/Offers'))
-const Collection = lazy(() => import('./pages/Collection'))
 const SingleRestaurent = lazy(() => import('./pages/SingleRestaurent'))
 const SortContainer = lazy(() => import('./components/sort/SortContainer'))
+const Collection = lazy(() => import('./pages/Collection'))
 
 // App
 const AppLayout = () => {
