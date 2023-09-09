@@ -48,7 +48,6 @@ const AppRouter = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-        children: [],
       },
       {
         path: '/offers',
@@ -68,7 +67,6 @@ const AppRouter = createBrowserRouter([
           },
         ],
       },
-
       {
         path: '/about',
         element: <About />,
