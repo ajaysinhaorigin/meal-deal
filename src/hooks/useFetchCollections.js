@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux'
 import {
   getFilteredRestaurents,
   setError,
-  setError,
   setLoading,
 } from '../features/restaurentSlice'
 import { useEffect } from 'react'
